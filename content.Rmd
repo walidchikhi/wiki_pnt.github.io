@@ -1,0 +1,11 @@
+---
+title: "Main Page"
+output:
+  html_document:
+    df_print: paged
+---
+
+
+Test pour linker les pages et markdown Créer 
+
+*[File 1](content/haro_old.html)

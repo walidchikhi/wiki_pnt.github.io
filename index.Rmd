@@ -1,0 +1,7 @@
+---
+title: "WikiPage"
+output: html_document
+---
+
+
+First Try to create a WikiPage for the ALGERIAN NWP service 
