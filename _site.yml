@@ -7,6 +7,7 @@ navbar:
     - text: "Harp"
       href: markdown.html
     - text: "Assimilation"
-      href: Journal.html
-    
+      href: assimilation.html 
+    - text: "Controle"
+      href: Journal.html 
 output_dir: "docs"
