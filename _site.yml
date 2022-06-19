@@ -1,6 +1,6 @@
-name: "MyLabJournal"
+name: "PNT Wiki"
 navbar:
-  title: "MyLabJournal"
+  title: "PNT Wiki"
   left:
     - text: "Home"
       href: index.html
