@@ -1,7 +1,12 @@
+name: "MyLabJournal"
 navbar:
-  title: title
+  title: "MyLabJournal"
   left:
-  - text : Main page that links to files
-  href: content.html
-output:
-  html_document
+    - text: "Home"
+      href: index.html
+    - text: "Harp"
+      href: markdown.html
+    - text: "Journal"
+      href: Journal.html
+    
+output_dir: "docs"
