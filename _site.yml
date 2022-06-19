@@ -6,7 +6,7 @@ navbar:
       href: index.html
     - text: "Harp"
       href: markdown.html
-    - text: "Add"
+    - text: "Assimilation"
       href: Journal.html
     
 output_dir: "docs"
