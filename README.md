@@ -6,7 +6,7 @@ Just a try to create a wiki page
 
 - first try Juin 2022 
 
-Just visit this Website [https://walidchikhi.github.io/wiki_pnt.github.io] 
+Just visit this Website [https://walidchikhi.github.io/index.html] 
 
 # Main NWP Tasks
 
