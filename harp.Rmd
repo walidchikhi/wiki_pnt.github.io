@@ -8,7 +8,7 @@ output:
   html_document:
     df_print: paged
     pdf_document: default
-    theme: united
+#    theme: united
     toc: yes
     toc_float: yes
 ---
