@@ -1,14 +1,15 @@
 ---
 title: "HARP AT METEO-ALGERIA"
-author: ' CHIKHI Walid et al.'
+author: ' CHIKHI Walid'
 date: ' Avril 2022'
 output:
-  pdf_document:
-    toc: yes
   html_document:
     df_print: paged
     pdf_document: default
-#    theme: united
+    toc: yes
+    toc_float: yes
+  pdf_document:
+   #theme: united
     toc: yes
     toc_float: yes
 ---
@@ -65,7 +66,7 @@ Afin d'utiliser un package sur R , nous devons tous dabord le charger sur notre 
 
 ## Comment Travailler avec les formats LFI et FA 
  
-Bien que les sorties des modéles opérationels utilisés au sein de Météo-Algérie soient du format "LFI" et "FA" ou plus couramment nommée par le services de la PNT "Fullpos" et "ICMSH", le package de base harp ne prend ces deux format en compte, et pour de raisons de confidentialité le code source du package _"Rfa"_ pour la manipulation de ces 2 formats n'est pas publiquement publié jusqu'a présent sur le git.pour se procurer le package Rfa , vous devriez contacter Monsieur **_Alex_ _Deckmyn_** < _alex.deckmyn@meteo.be_ > du l'institut Royal de Météorologie (IRM)           
+Bien que les sorties des modéles opérationels utilisés au sein de Météo-Algérie soient du format "LFI" et "FA" ou plus couramment nommée par le services de la PNT "Fullpos" et "ICMSH", le package de base harp ne prend ces deux format en compte, et pour de raisons de confidentialité le code source du package _"Rfa"_ pour la manipulation de ces 2 formats n'est pas publiquement paratgé jusqu'a présent sur aucun service web. Pour se procurer le package Rfa , vous devriez contacter Monsieur **_Alex_ _Deckmyn_** < _alex.deckmyn@meteo.be_ > du l'institut Royal de Météorologie (IRM)           
 
 
 ## *Guide d'utilisation* 
@@ -82,7 +83,7 @@ library(harp)
 
 # Lire un champ a partir d'un ICMSH et l'attribuer a un variable. 
 
-t2m=Rfa::FAdec("/home/wchikhi/Dropbox/Harp/PFAL03ALGE01+0000","SURFTEMPERATURE")
+t2m=Rfa::FAdec("~/Dropbox/Harp/PFAL03ALGE01+0000","SURFTEMPERATURE")
 plot_field(t2m)
 ```
 
@@ -142,11 +143,11 @@ Aprés avoir lu et importer les données sur l'environnement de R, des traitemen
 
 
       To be continued
-
-
-
                 Under Construction .... 
-
-
-
-
+                
+      -------------------------------------------          
+      Les critiques c'est pas la peine 
+      Je ne suis q'un simple Jeune Algérien Ambitieux..
+      Li Y3awen Mraaaahba BIH
+      --------------------------------------
+      SAHITOUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU

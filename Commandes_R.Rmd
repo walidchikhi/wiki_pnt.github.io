@@ -1,0 +1,39 @@
+---
+title: "Commnd utiles"
+author: "CHIKHI WALID"
+date: "2022-10-12"
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+ 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## commandes utiles
+### read grib par Rgrib2 et plot with plot_field  
+
+c'est compris je crois 
+
+
+```{r pressure,message=FALSE,echo=TRUE,warning=FALSE}
+library(Rgrib2)
+library(harp)
+grib=Rgrib2::Ghandle("~/test_model/GRIB101022/shfn/arome_12/HCHD98")
+grib_msg=Gdec(grib)
+plot_field(grib_msg)
+```
+### Get a Domain from GRIB With Rgrib2
+```{r}
+library(Rgrib2)
+library(harp)
+cams=Rgrib2::Gopen("~/LIMA/Cams/test")
+cams
+cams=Ghandle("~/LIMA/Cams/test")
+cams_dom=Rgrib2::Gdomain(cams)
+cams_dom
+```
+
