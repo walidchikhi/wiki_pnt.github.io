@@ -70,8 +70,7 @@ library(Rfa)
 library(harp)
 
 # Lire un champ a partir d'un ICMSH et l'attribuer a un variable. 
-
-t2m=Rfa::FAdec("/home/wchikhi/Dropbox/Harp/PFAL03ALGE01+0000","SURFTEMPERATURE")
+t2m=Rfa::FAdec("data/file.fa","CLSTEMPERATURE")
 plot_field(t2m)
 ```
 
@@ -88,12 +87,12 @@ library(harp)
 # POUR VOIR TOUT LES ARGUMENTS ET LEURS VALEURS PAR DÉFAUT ATTRIBUÉES . VEUILLEZ VOIR LE VOLET "Help" 
 
 
-start=20220101          # ! sous format {YYYY}{MM}{DD}{HH} : {HH} :peut etre omis
-end = 20220102
-leadtime= seq(0,24,6)   ## lead time = nombre d'échéeance Ex AROME-OPER -> leatime=seq(0,48,6) or 48 echeances avec un pas de 3h 
+start=20230501          # ! sous format {YYYY}{MM}{DD}{HH} : {HH} :peut etre omis
+end = 20230501
+leadtime= seq(0,0,1)   ## lead time = nombre d'échéeance Ex AROME-OPER -> leatime=seq(0,48,6) or 48 echeances avec un pas de 3h 
 
-template="{DD}/PFAL03ALGE01+00{LDT2}" #! LDT2 = represente le leadtime dans Harp; 2 = en 2 chiffres;  
-path="/home/wchikhi/LIMA/Harp-scores/FULLPOS/Harp/AROME/AROME_CY46"
+template="test.fa" #! LDT2 = represente le leadtime dans Harp; 2 = en 2 chiffres;  
+path="/data"
 
 ##_affichages des parametres prédéfinis dans Harp__####
 

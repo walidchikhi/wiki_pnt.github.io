@@ -22,7 +22,7 @@ c'est compris je crois
 ```{r pressure,message=FALSE,echo=TRUE,warning=FALSE}
 library(Rgrib2)
 library(harp)
-grib=Rgrib2::Ghandle("~/test_model/GRIB101022/shfn/arome_12/HCHD98")
+grib=Rgrib2::Ghandle("~/tmp/AROME/grib_2023020100_0011")
 grib_msg=Gdec(grib)
 plot_field(grib_msg)
 ```
@@ -30,9 +30,9 @@ plot_field(grib_msg)
 ```{r}
 library(Rgrib2)
 library(harp)
-cams=Rgrib2::Gopen("~/LIMA/Cams/test")
+cams=Rgrib2::Gopen("~/SAVE/LIMA/Cams/Aerosols.grib")
 cams
-cams=Ghandle("~/LIMA/Cams/test")
+cams=Ghandle("~/SAVE/LIMA/Cams/cams-arome.grib")
 cams_dom=Rgrib2::Gdomain(cams)
 cams_dom
 ```

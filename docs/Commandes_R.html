@@ -15,7 +15,7 @@
 
 <title>Commnd utiles</title>
 
-<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -183,8 +183,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -192,16 +192,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -369,55 +362,37 @@ class="section level3">
 <p>c’est compris je crois</p>
 <pre class="r"><code>library(Rgrib2)
 library(harp)
-grib=Rgrib2::Ghandle(&quot;~/test_model/GRIB101022/shfn/arome_12/HCHD98&quot;)
+grib=Rgrib2::Ghandle(&quot;~/tmp/AROME/grib_2023020100_0011&quot;)
 grib_msg=Gdec(grib)
 plot_field(grib_msg)</code></pre>
-<pre><code>## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!</code></pre>
-<p><img src="Commandes_R_files/figure-html/pressure-1.png" width="672" /></p>
-<pre><code>## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!</code></pre>
-</div>
-<div id="get-a-domain-from-grib-with-rgrib2" class="section level3">
-<h3>Get a Domain from GRIB With Rgrib2</h3>
+<p><img src="Commandes_R_files/figure-html/pressure-1.png" width="672" />
+### Get a Domain from GRIB With Rgrib2</p>
 <pre class="r"><code>library(Rgrib2)
 library(harp)
-cams=Rgrib2::Gopen(&quot;~/LIMA/Cams/test&quot;)
+cams=Rgrib2::Gopen(&quot;~/SAVE/LIMA/Cams/Aerosols.grib&quot;)
 cams</code></pre>
 <pre><code>##   position shortName   gridType     units editionNumber dataDate dataTime
-## 1        1   aermr01 regular_ll kg kg**-1             2 20180511        0
-## 2        2   aermr02 regular_ll kg kg**-1             2 20180511        0
-## 3        3   aermr03 regular_ll kg kg**-1             2 20180511        0
-## 4        4         t regular_ll         K             2 20180511        0
+## 1        1   aermr01 regular_ll kg kg**-1             1 20220101        0
+## 2        2   aermr06 regular_ll kg kg**-1             1 20220101        0
+## 3        3   aermr04 regular_ll kg kg**-1             1 20220101        0
+## 4        4   aermr01 regular_ll kg kg**-1             2 20220101        0
+## 5        5   aermr06 regular_ll kg kg**-1             2 20220101        0
+## 6        6   aermr04 regular_ll kg kg**-1             2 20220101        0
 ##   validityDate validityTime Nx Ny table2Version indicatorOfParameter
-## 1     20180511            0 17 17            NA                   NA
-## 2     20180511            0 17 17            NA                   NA
-## 3     20180511            0 17 17            NA                   NA
-## 4     20180511            0 17 17            NA                   NA
+## 1     20220101            0 76 83           210                    1
+## 2     20220101            0 76 83           210                    6
+## 3     20220101            0 76 83           210                    4
+## 4     20220101            0 76 83            NA                   NA
+## 5     20220101            0 76 83            NA                   NA
+## 6     20220101            0 76 83            NA                   NA
 ##   parameterCategory parameterNumber levelType level msg_loc msg_len msg_ed
-## 1               210               1       105     1       0    1551      2
-## 2               210               2       105     1    1552    1551      2
-## 3               210               3       105     1    3104    1551      2
-## 4                 0               0       105     1    4656    1262      2</code></pre>
-<pre class="r"><code>cams=Ghandle(&quot;~/LIMA/Cams/test&quot;)
+## 1                NA              NA       100     1       0   19032      1
+## 2                NA              NA       100     1   19032   19032      1
+## 3                NA              NA       100     1   38064   19032      1
+## 4               210               1       105   137   57096   20224      2
+## 5               210               6       105   137   77320   20224      2
+## 6               210               4       105   137   97544   20224      2</code></pre>
+<pre class="r"><code>cams=Ghandle(&quot;~/SAVE/LIMA/Cams/cams-arome.grib&quot;)
 cams_dom=Rgrib2::Gdomain(cams)
 cams_dom</code></pre>
 <pre><code>## 17 x 17 domain

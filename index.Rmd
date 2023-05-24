@@ -55,14 +55,3 @@ Explanation of the tools we use to survive :D :)
 
 ## any help will be appreciated  
 
-
-
-</div>
-<div class="col-sm-6">
-
-### [Site Météo-Algérie](https://www.meteo.dz/home)
-
-<a href = "https://www.meteo.dz/home">
-![](images/logo.png)
-</a>
-</div>

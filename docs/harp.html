@@ -14,7 +14,7 @@
 
 <title>HARP AT METEO-ALGERIA</title>
 
-<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -184,8 +184,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -193,16 +193,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -340,6 +333,9 @@ div.tocify {
 <li>
   <a href="controle.html">Controle</a>
 </li>
+<li>
+  <a href="Commandes_R.html">Commandes R</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -392,7 +388,6 @@ pas en considération les formats LFI et FA ) ^ :</p>
 <p>Si l’installation du package a été effectué avec succés un message de
 ce genre sera affiché sur la console de Rstudio :</p>
 <hr />
-<pre><code>## Le chargement a nécessité le package : usethis</code></pre>
 <hr />
 <p>Afin d’utiliser un package sur R , nous devons tous dabord le charger
 sur notre environnement de travail. la fonction
@@ -422,39 +417,14 @@ Météorologie (IRM)</p>
 <div id="exemple" class="section level4">
 <h4><em>Exemple</em></h4>
 <p>Voici un petit exemple pour la manipulation d’un fichier FA</p>
-<pre class="r"><code>library(Rfa)</code></pre>
-<pre><code>## Le chargement a nécessité le package : meteogrid</code></pre>
-<pre class="r"><code>library(harp)</code></pre>
-<pre><code>## Le chargement a nécessité le package : harpIO</code></pre>
-<pre><code>## Le chargement a nécessité le package : harpPoint</code></pre>
-<pre><code>## Le chargement a nécessité le package : harpVis</code></pre>
-<pre><code>## Le chargement a nécessité le package : ggplot2</code></pre>
-<pre><code>## Le chargement a nécessité le package : shiny</code></pre>
-<pre><code>## Le chargement a nécessité le package : harpSpatial</code></pre>
-<pre class="r"><code># Lire un champ a partir d&#39;un ICMSH et l&#39;attribuer a un variable. 
+<pre class="r"><code>library(Rfa)
+library(harp)
 
-t2m=Rfa::FAdec(&quot;~/Dropbox/Harp/PFAL03ALGE01+0000&quot;,&quot;SURFTEMPERATURE&quot;)
+# Lire un champ a partir d&#39;un ICMSH et l&#39;attribuer a un variable. 
+
+t2m=Rfa::FAdec(&quot;data/file.fa&quot;,&quot;CLSTEMPERATURE&quot;)
 plot_field(t2m)</code></pre>
-<pre><code>## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!</code></pre>
 <p><img src="harp_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<pre><code>## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!
-## Nothing to project!</code></pre>
 </div>
 </div>
 <div id="lire-une-prévision-avec-harp" class="section level2">
@@ -471,12 +441,12 @@ library(harp)
 # POUR VOIR TOUT LES ARGUMENTS ET LEURS VALEURS PAR DÉFAUT ATTRIBUÉES . VEUILLEZ VOIR LE VOLET &quot;Help&quot; 
 
 
-start=20220101          # ! sous format {YYYY}{MM}{DD}{HH} : {HH} :peut etre omis
-end = 20220102
-leadtime= seq(0,24,6)   ## lead time = nombre d&#39;échéeance Ex AROME-OPER -&gt; leatime=seq(0,48,6) or 48 echeances avec un pas de 3h 
+start=20230501         # ! sous format {YYYY}{MM}{DD}{HH} : {HH} :peut etre omis
+end = 20230501
+leadtime= seq(0,0,1)   ## lead time = nombre d&#39;échéeance Ex AROME-OPER -&gt; leatime=seq(0,48,6) or 48 echeances avec un pas de 3h 
 
-template=&quot;{DD}/PFAL03ALGE01+00{LDT2}&quot; #! LDT2 = represente le leadtime dans Harp; 2 = en 2 chiffres;  
-path=&quot;/home/wchikhi/LIMA/Harp-scores/FULLPOS/Harp/AROME/AROME_CY46&quot;
+template=&quot;file.fa&quot; #! LDT2 = represente le leadtime dans Harp; 2 = en 2 chiffres;  
+path=&quot;data&quot;
 
 ##_affichages des parametres prédéfinis dans Harp__####
 
@@ -485,11 +455,11 @@ show_harp_parameters()</code></pre>
 ##    harp_parameter_name description                                              
 ##    &lt;chr&gt;               &lt;chr&gt;                                                    
 ##  1 AccPcp12h           Accumulated precipitation over e.g. 12 hours             
-##  2 Cbase               Height of cloud base                                     
-##  3 CChigh              High level cloud cover                                   
-##  4 CClow               Low level cloud cover                                    
-##  5 CCmed               Medium level cloud cover                                 
-##  6 CCtot               Total cloud cover                                        
+##  2 CChigh              High level cloud cover                                   
+##  3 CClow               Low level cloud cover                                    
+##  4 CCmed               Medium level cloud cover                                 
+##  5 CCtot               Total cloud cover                                        
+##  6 Cbase               Height of cloud base                                     
 ##  7 D10m                10m wind direction                                       
 ##  8 G10m                10m wind gust - period depends on input data             
 ##  9 Gmax                10m maximum wind gust - period depends on input data     
@@ -524,21 +494,14 @@ forecast=read_forecast(start_date = start,
               stop_on_fail =  T,
               return_data = T , # a utiliser avec précautions , consomme beaucoup de mémorire RAM.
               )</code></pre>
-<pre><code>## Warning: Files not found for 202201010000. Missing files:
-## /home/wchikhi/LIMA/Harp-scores/FULLPOS/Harp/AROME/AROME_CY46/01/PFAL03ALGE01+0000
-## /home/wchikhi/LIMA/Harp-scores/FULLPOS/Harp/AROME/AROME_CY46/01/PFAL03ALGE01+0006
-## /home/wchikhi/LIMA/Harp-scores/FULLPOS/Harp/AROME/AROME_CY46/01/PFAL03ALGE01+0012
-## /home/wchikhi/LIMA/Harp-scores/FULLPOS/Harp/AROME/AROME_CY46/01/PFAL03ALGE01+0018
-## /home/wchikhi/LIMA/Harp-scores/FULLPOS/Harp/AROME/AROME_CY46/01/PFAL03ALGE01+0024</code></pre>
-<pre><code>## Warning: No files found for 202201010000.</code></pre>
-<pre><code>## Warning: Files not found for 202201020000. Missing files:
-## /home/wchikhi/LIMA/Harp-scores/FULLPOS/Harp/AROME/AROME_CY46/02/PFAL03ALGE01+0000
-## /home/wchikhi/LIMA/Harp-scores/FULLPOS/Harp/AROME/AROME_CY46/02/PFAL03ALGE01+0006
-## /home/wchikhi/LIMA/Harp-scores/FULLPOS/Harp/AROME/AROME_CY46/02/PFAL03ALGE01+0012
-## /home/wchikhi/LIMA/Harp-scores/FULLPOS/Harp/AROME/AROME_CY46/02/PFAL03ALGE01+0018
-## /home/wchikhi/LIMA/Harp-scores/FULLPOS/Harp/AROME/AROME_CY46/02/PFAL03ALGE01+0024</code></pre>
-<pre><code>## Warning: No files found for 202201020000.</code></pre>
+<pre><code>## Reading data/file.fa</code></pre>
 <pre class="r"><code>forecast %&gt;% print(n=Inf)</code></pre>
+<pre><code>## • AROME
+## # A tibble: 1 × 9
+##   fcdate              lead_time parameter validdate           level_type level
+##   &lt;dttm&gt;                  &lt;dbl&gt; &lt;chr&gt;     &lt;dttm&gt;              &lt;chr&gt;      &lt;dbl&gt;
+## 1 2023-05-01 00:00:00         0 T2m       2023-05-01 00:00:00 height         2
+## # ℹ 3 more variables: units &lt;chr&gt;, fcst_cycle &lt;chr&gt;, AROME_det &lt;geolist&gt;</code></pre>
 <p>Aprés avoir lu et importer les données sur l’environnement de R, des
 traitements usuels peuvent etres appliqués et ces données peuvent etre
 traité a l’aide des fonction R de Base ou a l’aide du <em>package</em> (

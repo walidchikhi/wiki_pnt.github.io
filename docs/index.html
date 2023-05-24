@@ -13,7 +13,7 @@
 
 <title>Wiki-PNT</title>
 
-<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -178,8 +178,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -187,16 +187,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -293,6 +286,7 @@ $(document).ready(function () {
 </style>
 <div class="row" style="padding-top: 30px;">
 <div class="col-sm-6">
+
 <div id="first-pnt-wiki" class="section level1">
 <h1><strong>First PNT Wiki</strong></h1>
 <p>This is Just an example of how far we can go in creating a Website
@@ -328,12 +322,6 @@ integrate the group as soon as possible .</p>
 <div id="any-help-will-be-appreciated" class="section level2">
 <h2>any help will be appreciated</h2>
 </div>
-</div>
-</div>
-<div id="site-météo-algérie" class="section level3 col-sm-6">
-<h3><a href="https://www.meteo.dz/home">Site Météo-Algérie</a></h3>
-<p><a href = "https://www.meteo.dz/home"> <img src="images/logo.png" />
-</a></p>
 </div>
 
 

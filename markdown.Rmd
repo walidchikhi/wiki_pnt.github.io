@@ -82,7 +82,7 @@ library(harp)
 
 # Lire un champ a partir d'un ICMSH et l'attribuer a un variable. 
 
-t2m=Rfa::FAdec("/home/wchikhi/Dropbox/Harp/PFAL03ALGE01+0000","SURFTEMPERATURE")
+t2m=Rfa::FAdec("data/file.fa","CLSTEMPERATURE")
 plot_field(t2m)
 ```
 
