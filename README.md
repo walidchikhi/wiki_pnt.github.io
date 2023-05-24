@@ -4,7 +4,7 @@
 Just a try to create a wiki page 
 
 
-Just visit this Website [https://walidchikhi.github.io/wiki_pnt.github.io/_site/index.html] 
+Just visit this Website [https://walidchikhi.github.io/wiki_pnt.github.io/] 
 
 # Main NWP Tasks
 
